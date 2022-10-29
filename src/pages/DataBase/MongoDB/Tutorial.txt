@@ -1,0 +1,163 @@
+mongoSHELL
+
+show dbs,
+show database - посмотреть имеющиеся базы данных
+
+use [dataBaseName] - команда что бы использовать базу данных или как то изменять
+коллекции.
+Если с названием [dataBaseName] базы данных не существует, она будет создана.
+
+db.createCollection(name, options) - Creates a new collection or view.
+
+show collections - посмотреть коллекции (в текущей базе данных)
+
+db.dropDatabase() - `удалить` (текущую) базу данных
+
+db.[collectionName].insert({}) - `добавить документ в коллекцию `--->
+устаревший способ. Будет работать, но предложит более новые версии способа
+'DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.'
+
+db.users.insert({
+name: "Rick",
+age: 70
+})
+
+db.users.insertMany([
+  {
+    name: "Vasya",
+    age: 28
+  },
+  {
+    name: "Petya",
+    age: 35
+  },
+  {
+    name: "Dima",
+    age: 21
+  },
+  {
+    name: "Anton",
+    age: 24
+  },
+  {
+    name: "Morty",
+    age: 16
+  },
+])
+
+db.[collectionName].find() - `найти` пользователя
+db.collection.find(query, projection, options)
+
+db.users.find({age: 25})
+db.users.find({age: 70, name: 'Rick'})
+
+Поиск `по нескольким кретериям` сразу OR ||
+db.users.find({$or:[{name: "Rick"},{age: 16}]})
+
+Найти с возрастом `меньше искомого` (less then)
+db.users.find({age:{$lt: 30}})
+Найти с возрастом `больше искомого `(greater then)
+db.users.find({age:{$gt: 30}})
+
+`меньше или равно` lte (less then equals)
+`больше или равно` gte (greater then equals)
+
+найти запись которая `не равна заданному`
+
+db.users.find({age:{$ne: 35}}) (not equals)
+
+db.users.find().sort() - `отсортировать` данные по кретерию
+db.users.find().sort({age: 1}) - указать единицу если сортируем по возрастанию и
+минус 1 по убыванию
+
+db.users.find().limit(2) - `задать лимит `на кол-во возвращаемых данных
+
+Все это комбинируется с сортировкой.
+
+MongoDB создает уникальный ID по-умолчанию для каждого пользователя
+
+db.users.findOne({\_id: ObjectId("635c9554877618040329d48b")}) -` Найти по ID`
+\_id ---> `_id` автоизменения
+
+`Обновление данных`
+db.users.update(
+  {name:"Rick"},
+  {
+    $set:{
+    age: 71
+    }
+  }
+)
+
+Лучше использовать updateOne и updateMany
+
+db.users.updateMany(
+  {},
+  {
+    $rename:{
+    name: "fullname"
+    }
+  }
+)
+name ---> fullname
+{} - пустые критерии, значит обновить все записи
+
+db.users.deleteOne({age: 24}) - `удалить запись`
+
+`Несколько операций в одном запросе`
+db.users.bulkWrite(
+  [
+    {
+      insertOne:{
+        document: {fullname: "Quentin", age: 55}
+      },
+    },
+    {
+      deleteOne:{
+        filter: {fullname: "petya"}
+      }
+    }
+  ]
+)
+
+
++Обновим пользователя и добавим ему связи
+db.users.update(
+  {
+    fullname: "Quentin"
+  },
+  {
+    $set:{
+      posts:[
+        {title: 'movies', text: "pulp fiction"},
+        {title: 'favorite', text: "kill bill"}
+      ]
+    }
+  }
+)
+связь один ко многим
+
+db.users.findOne(
+  {fullname: "Quentin"},
+  {
+    posts: 1
+  }
+) ---> получим только посты у "Quentin"
+
+db.users.find(
+  {
+    posts: {
+      $elemMatch:{
+        title: "movies"
+      }
+    }
+  }
+) ---> ищем пользователя (лей) у которых есть поле title со значением movies
+
+db.users.find(
+  {
+    posts: {
+      $exists: true
+    }
+  }
+  ) ---> ищем пользователей у которых есть поле title
