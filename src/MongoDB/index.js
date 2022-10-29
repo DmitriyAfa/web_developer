@@ -9,10 +9,9 @@ const start = async () => {
     await mongoClient.connect();
     // взаимодействие с базой данных
     let db = mongoClient.db("mongo");
-
     let users = db.collection("users");
     const findResult = await users.find({}).toArray();
-    console.log("Found documents =>", findResult);
+    console.log(findResult);
   } catch (err) {
     console.log(err);
   } finally {
