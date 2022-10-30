@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import { pageRoutes } from "./routes";
+import { architectureRoutes } from "./routes";
 
-export const AppRouter = () => {
+export const ArchitectureRouter = () => {
   return (
     <Routes>
-      {pageRoutes.map(({ path, Element }) => {
+      {architectureRoutes.map(({ path, Element }) => {
         return <Route key={path} path={path} element={<Element />} />;
       })}
     </Routes>

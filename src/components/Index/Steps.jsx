@@ -3,7 +3,7 @@ import { GoingTo } from "../Glossary/GoingTo";
 import { ToFigureOut } from "../Glossary/ToFigureOut";
 import { Link } from "react-router-dom";
 
-export const StepZero = () => {
+export const Steps = () => {
   const StepOne = () => {
     return (
       <Card.Title>
@@ -57,6 +57,11 @@ export const StepZero = () => {
             take too much time and effort. instead I'd prefer to focus on what I
             can. You can to create your own application with the necessary
             minimum of knowlegde.
+          </Card.Text>
+          <Card.Text>
+            As an example, i'm going to create this app without an admin panel.
+            It means that i won't be using the backend, the state manager and
+            the database.
           </Card.Text>
           <Card.Text>
             You need to create a simple version of this app. And in the
