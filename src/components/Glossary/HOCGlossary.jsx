@@ -4,7 +4,7 @@ export const HOCGlossary = ({ tooltip, text }) => {
     <OverlayTrigger
       overlay={<Tooltip id="tooltip-disabled">{tooltip}</Tooltip>}
     >
-      <span className="d-inline-block">{text}</span>
+      <span className="d-inline-block text-info">{text}</span>
     </OverlayTrigger>
   );
 };

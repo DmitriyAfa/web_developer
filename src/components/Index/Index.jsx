@@ -1,10 +1,10 @@
-import { Go } from "./Go";
+import { StepZero } from "./StepZero";
 import { Hello } from "./Hello";
 export const Index = () => {
   return (
     <>
       <Hello />
-      <Go />
+      <StepZero />
     </>
   );
 };

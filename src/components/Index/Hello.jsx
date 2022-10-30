@@ -28,6 +28,17 @@ export const Hello = () => {
             suppose it's natural that i started this project.
           </Card.Text>
 
+          <Card.Title>What the app do i want ?</Card.Title>
+          <Card.Text>
+            I want to add information and pictures via web site. This is like an
+            admin panel.
+          </Card.Text>
+
+          <Card.Title>
+            I must say that all my advices are a description of my way. No more
+            than that.
+          </Card.Title>
+
           <Card.Title>What about my knowledge at this stage?</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
             I must confess I didn't start from scratch at all.
