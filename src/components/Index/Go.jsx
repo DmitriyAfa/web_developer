@@ -1,4 +1,5 @@
-import { Card, OverlayTrigger, Tooltip, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { ToFigureOut } from "../Glossary/ToFigureOut";
 export const Go = () => {
   return (
     <>
@@ -10,7 +11,7 @@ export const Go = () => {
           </Card.Title>
           <Card.Subtitle className="mb-2 text-muted">A</Card.Subtitle>
           <Card.Text>
-            You need to figure out what you want. You can ask yourself: what
+            You need <ToFigureOut /> what you want. You can ask yourself: what
             problems it will solve.
           </Card.Text>
           <Card.Text>
