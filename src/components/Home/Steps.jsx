@@ -2,12 +2,12 @@ import { Card } from "react-bootstrap";
 import { GoingTo } from "../Glossary/GoingTo";
 import { ToFigureOut } from "../Glossary/ToFigureOut";
 import { Link } from "react-router-dom";
-import sitemapImg from "../../pages/Architecture/Sitemap/sitemap.jpg";
+import sitemapImg from "../../pages/Theory/WebArchitecture/Sitemap/sitemap.jpg";
 export const Steps = () => {
   const StepZero = () => {
     return (
       <>
-        <Card.Title>
+        <Card.Title id="step0">
           Step 0: decide what you want before you write the code
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
@@ -63,7 +63,7 @@ export const Steps = () => {
   const StepOne = () => {
     return (
       <>
-        <Card.Title>
+        <Card.Title id="step1">
           Step 1: make a <Link to="/">sitemap</Link>
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted">

@@ -9,7 +9,7 @@ export const Hello = () => {
             This project is designed to create a complete picture to create an
             app!
           </Card.Header>
-          <Card.Title>Why did i start this project ?</Card.Title>
+          <Card.Title id="why">Why did i start this project ?</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
             First reason
           </Card.Subtitle>
