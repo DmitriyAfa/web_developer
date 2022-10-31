@@ -2,9 +2,11 @@ import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { HeaderApp } from "./Header";
 import { HomePage } from "../../pages/Home/Home";
-import { ArchitectureLayout } from "../layouts/Architecture";
-import { ArchitecturePage } from "../../pages/Architecture/Architecture";
-import { SitemapPage } from "../../pages/Architecture/Sitemap/Sitemap";
+import { TheoryLayout } from "../layouts/TheoryLayout";
+import { TheoryPage } from "../../pages/Theory/Theory";
+import { SitemapPage } from "../../pages/Theory/WebArchitecture/Sitemap/Sitemap";
+import { WebArchitectureLayout } from "../layouts/WebArchitectureLayout";
+import { WebArchitecturePage } from "../../pages/Theory/WebArchitecture/WebArchitecture";
 
 function App() {
   return (
@@ -16,9 +18,12 @@ function App() {
         {/* <Route path="contacts" element={<p>Our contact</p>} />
           <Route path="team" element={<p>Our team</p>} /> */}
 
-        <Route path="architecture" element={<ArchitectureLayout />}>
-          <Route index element={<ArchitecturePage />} />
-          <Route path="sitemap" element={<SitemapPage />} />
+        <Route path="theory" element={<TheoryLayout />}>
+          <Route index element={<TheoryPage />} />
+          <Route path="webArchitecture" element={<WebArchitectureLayout />}>
+            <Route index element={<WebArchitecturePage />} />
+            <Route path="sitemap" element={<SitemapPage />} />
+          </Route>
         </Route>
         {/* <Route path="about-us" element={<Navigate to="/about" replace />} />
           <Route path="posts" element={<Blogpage />} />

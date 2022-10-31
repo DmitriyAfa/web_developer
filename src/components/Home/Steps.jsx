@@ -2,7 +2,7 @@ import { Card } from "react-bootstrap";
 import { GoingTo } from "../Glossary/GoingTo";
 import { ToFigureOut } from "../Glossary/ToFigureOut";
 import { Link } from "react-router-dom";
-import sitemapImg from "../../pages/Architecture/Sitemap/sitemap.jpg";
+import sitemapImg from "../../pages/Theory/Sitemap/sitemap.jpg";
 export const Steps = () => {
   const StepZero = () => {
     return (
