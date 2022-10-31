@@ -6,12 +6,12 @@ export const TheoryLayout = () => {
     <Container>
       <Row>
         <Col md={2} className="d-flex flex-column">
-          <Nav className="flex-column">
+          <Nav className="flex-column position-fixed">
             <NavDropdown title="Web achitecture" id="nav-dropdown">
-              <NavDropdown.Item>
-                <Link to="/theory/webArchitecture">Home</Link>
+              <NavDropdown.Item eventKey="4.1">
+                <Link to="/theory/webArchitecture">Web architecture</Link>
               </NavDropdown.Item>
-              <NavDropdown.Item>
+              <NavDropdown.Item eventKey="4.2">
                 <Link to="/theory/webArchitecture/sitemap">Sitemap</Link>
               </NavDropdown.Item>
             </NavDropdown>
