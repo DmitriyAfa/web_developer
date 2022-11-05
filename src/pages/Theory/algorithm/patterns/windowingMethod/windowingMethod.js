@@ -53,22 +53,22 @@ let array = [1, 5, 3, 6, 8, 3, 6, 8, 0, 3, 6];
  * return maxSum;
  */
 
-// function maxSubArrayOfsizeK(k, arr) {
-//   let maxSum = 0;
-//   let winodwSum = 0;
-//   let start = 0;
-//   for (let end = 0; end < arr.length; end++) {
-//     winodwSum += arr[end];
-//     if (end >= k - 1) {
-//       maxSum = Math.max(maxSum, winodwSum);
-//       winodwSum -= arr[start];
-//       start++;
-//     }
-//   }
-//   return maxSum;
-// }
+function maxSubArrayOfsizeK(k, arr) {
+  let maxSum = 0;
+  let winodwSum = 0;
+  let start = 0;
+  for (let end = 0; end < arr.length; end++) {
+    winodwSum += arr[end];
+    if (end >= k - 1) {
+      maxSum = Math.max(maxSum, winodwSum);
+      winodwSum -= arr[start];
+      start++;
+    }
+  }
+  return maxSum;
+}
 
-// console.log(maxSubArrayOfsizeK(k, array)); // ---> 31
+console.log(maxSubArrayOfsizeK(k, array)); // ---> 31
 
 /**
  * Динамические окна
@@ -78,30 +78,64 @@ let array = [1, 5, 3, 6, 8, 3, 6, 8, 0, 3, 6];
  * Пример, "найти длину наименьшего непрерывного подмассива с суммой, большей или равной заданному значению"
  *
  * В этом случае мы проверяем разную длину окна.
- * Нужно начав с первого элемента массива расширять окно, пока не достигнем суммы.
+ * Нужно начав с первого элемента массива расширять окно, пока не достигнем суммы k.
  * Затем сжимаем окно, перемещая начало окна вперед. Как только значение опускается ниже сумыы, нам придется снова расширить
  * окно, переместив конец окна вперед.
  *
  */
 
-// let sum = 10;
-// let arr2 = [1, 5, 3, 6, 8, 3];
+/*
+array: [1, 5, 3, 6, 8, 3]
+sum: 10
+We start by setting the window to be length 1, looking only at the first element.
+  [*1, 5, 3, 6, 8, 3]
+1 is less than the sum, so we expand the window until we are greater than or equal to the sum:
+  [*1, *5, *3, *6, 8, 3] => length = 4, windowSum = 15
+Now we shrink the window by moving the start and check if it's still greater than the sum
+  [1, *5, *3, *6, 8, 3] => length = 3, windowSum = 14
+We update our min length to be 3! 
+  [1, 5, *3, *6, 8, 3] => windowSum = 9
+Now the sum is too small, so we expand our window again
+  [1, 5, *3, *6, *8, 3] => length = 3, windowSum = 17
+We are big enough to shrink the window
+  [1, 5, 3, *6, *8, 3] => length = 2, windowSum = 14
+Update our min length to be 2! Shrink the window.
+  [1, 5, 3, 6, *8, 3] => windowSum = 8
+Too small, expand the window!
+  [1, 5, 3, 6, *8, *3] => length = 2, windowSum = 11
+We have reached the end of the array, and the smallest window we saw that was greater than the test sum was 2 elements in length.
+ */
+let sum = 10;
+let arr2 = [1, 5, 3, 6, 8, 3];
 
-// function findMinLengthOfSumK(k, arr) {
-//   let minLength = Infinity;
-//   let windowSum = 0;
-//   let start = 0;
-//   for (let end = 0; end < arr.length; end++) {
-//     windowSum += arr[end];
-//     if (windowSum >= k) {
-//       while (windowSum >= k) {
-//         minLength = Math.min(minLength, end - start);
-//         windowSum -= arr[start];
-//         start--;
-//       }
-//     }
-//   }
-//   return minLength;
-// }
+function findMinLengthOfSumK(k, arr) {
+  let minLength = Infinity;
+  let windowSum = 0;
+  let start = 0;
+  for (let end = 0; end < arr.length; end++) {
+    windowSum += arr[end];
+    if (windowSum >= k) {
+      console.log(
+        `При расширении окна вправо сумма была найдена start: ${arr[start]} end: ${arr[end]}`
+      );
+      minLength = Math.min(minLength, end - start + 1);
+      console.log(
+        `Расчёт минимума когда сумма при расширении была найдена ${minLength}`
+      );
+      while (windowSum >= k) {
+        windowSum -= arr[start];
+        if (windowSum >= k) {
+          minLength = Math.min(minLength, end - start + 1);
+          console.log(`Расчёт минимума при сужении ${minLength}`);
+        }
+        start++;
+      }
+      console.log(
+        `После итерации на сужение окна вправо start: ${arr[start]} end: ${arr[end]}`
+      );
+    }
+  }
+  return minLength;
+}
 
-// console.log(findMinLengthOfSumK(sum, arr2));
+console.log(findMinLengthOfSumK(sum, arr2));
