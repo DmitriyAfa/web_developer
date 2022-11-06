@@ -154,17 +154,15 @@ export const Steps = () => {
     );
   };
   return (
-    <>
-      <Card>
-        <Card.Body>
-          <Card.Header>
-            Now i'm <GoingTo /> talk about what i do to create this app
-          </Card.Header>
-          <StepZero />
-          <StepOne />
-          <MyIdeaOne />
-        </Card.Body>
-      </Card>
-    </>
+    <Card>
+      <Card.Body>
+        <Card.Header>
+          Now i'm <GoingTo /> talk about what i do to create this app
+        </Card.Header>
+        <StepZero />
+        <StepOne />
+        <MyIdeaOne />
+      </Card.Body>
+    </Card>
   );
 };

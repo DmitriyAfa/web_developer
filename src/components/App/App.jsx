@@ -9,6 +9,8 @@ import { WebArchitecturePage } from "../../pages/Theory/WebArchitecture/WebArchi
 import { FrontendLayout } from "../layouts/Frontend/FrontendLayout";
 import { FrontendPage } from "../../pages/Frontend/Frontend";
 import { CommonLayout } from "../layouts/CommonLayout";
+import { ArchPatterns } from "../../pages/Theory/ArchPatterns/ArchPatterns";
+import { MVC, MVCPage } from "../../pages/Theory/ArchPatterns/MVC/MVC";
 
 function App() {
   return (
@@ -20,9 +22,15 @@ function App() {
         {/* TheoryPage */}
         <Route path="theory" element={<TheoryLayout />}>
           <Route index element={<TheoryPage />} />
+
           <Route path="webArchitecture" element={<CommonLayout />}>
             <Route index element={<WebArchitecturePage />} />
             <Route path="sitemap" element={<SitemapPage />} />
+          </Route>
+
+          <Route path="archpatterns" element={<CommonLayout />}>
+            <Route index element={<ArchPatterns />} />
+            <Route path="MVC" element={<MVCPage />} />
           </Route>
         </Route>
 
