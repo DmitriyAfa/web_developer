@@ -1,17 +1,21 @@
-export const questions1 = [
+import { TSubjectOfQuestions } from "../../../../types/Frontend/questions";
+
+const questions1 = [
   {
     question: "Что такое TypeSript ",
-    topics: {
-      answer: [
-        `Это язык программирования, который расширяет возможности JavaScript за счёт типизации``Выполняет свою работу до запуска кода (поэтому его называют статическим), значит разработчику не придётся запускать код что бы понять была ли допущена ошибка в типах`,
-      ],
-      id: 0,
-    },
+    answers: [
+      {
+        answer: [
+          `Это язык программирования, который расширяет возможности JavaScript за счёт типизации`,`Выполняет свою работу до запуска кода (поэтому его называют статическим), значит разработчику не придётся запускать код что бы понять была ли допущена ошибка в типах`,
+        ],
+        id: 0,
+      }
+    ],
     id: 0,
   },
   {
     question: "Какие типы ошибок отлавивает TypeScript ",
-    topics: [
+    answers: [
       {
         answer: [
           `Позволяет перехватить многие "легальные" ошибки с точки зрения JavaScript спецификации: `,
@@ -27,7 +31,7 @@ export const questions1 = [
   },
   {
     question: "Как работает TypeScript",
-    topics: [
+    answers: [
       {
         answer: [
           `TypeScript обладает информацией о типах которые мы используем в коде и на основе этой информации он наичнает предполагать свойство с каким типом мы хотим использовать`,
@@ -39,7 +43,7 @@ export const questions1 = [
   },
   {
     question: "Может ли TypeScript компилировать с ошибками",
-    topics: [
+    answers: [
       {
         answer: [
           `TypeScript может компилировать в JavaScript с ошибками допущенными в типизации. Потому что TypeScript считает вас умнее себя.`,
@@ -52,7 +56,7 @@ export const questions1 = [
   },
   {
     question: "Какие примитивы используются",
-    topics: [
+    answers: [
       {
         answer: [`Типы: string, number и boolean`],
         id: 0,
@@ -62,7 +66,7 @@ export const questions1 = [
   },
   {
     question: "Основные типы в TypeScript",
-    topics: [
+    answers: [
       {
         topic: "Массивы",
         answer: [
@@ -145,7 +149,7 @@ export const questions1 = [
   },
   {
     question: "Разница между type и interface",
-    topics: [
+    answers: [
       {
         answer: [
           `Разница type не может повторно быть открыт для добавления свойства (некая константа), в то время как в interface можно добавить новые свойства. Но можно обойти запрет на расширение type с помощью пересечения (intersection)`,
@@ -156,3 +160,11 @@ export const questions1 = [
     id: 6,
   },
 ];
+
+const commonQuestions = {
+  title: "Основы",
+  questions: [...questions1],
+  id: 0,
+};
+
+export const questions: TSubjectOfQuestions = [commonQuestions];

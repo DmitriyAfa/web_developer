@@ -1,4 +1,6 @@
-const qestions10 = [
+import { TSubjectOfQuestions } from "../../../../types/Frontend/questions";
+
+const commonQestions10 = [
   {
     question: "Что такое JavaScript",
     answers: [
@@ -190,7 +192,7 @@ const qestions10 = [
   },
 ];
 
-const questions20 = [
+const commonQuestions20 = [
   {
     question: "Почему у примитивов есть методы",
     answers: [
@@ -349,8 +351,8 @@ const questions20 = [
 
 export const commonQuestions = {
   title: "Общие вопросы",
-  questions: [...qestions10, ...questions20],
+  questions: [...commonQestions10, ...commonQuestions20],
   id: 0,
 };
 
-export const questions = [commonQuestions];
+export const questions: TSubjectOfQuestions = [commonQuestions];

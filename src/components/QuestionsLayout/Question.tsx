@@ -1,6 +1,7 @@
 import { Card, Accordion } from "react-bootstrap";
+import { TQuestion } from "../../types/Frontend/questions";
 
-export const Question = ({ data }) => {
+export const Question = ({ data }: {data: TQuestion}) => {
   const { question, answers, id } = data;
   return (
     <Accordion key={id}>
