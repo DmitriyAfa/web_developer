@@ -11,6 +11,7 @@ import { FrontendPage } from "../../pages/Frontend/Frontend";
 import { CommonLayout } from "../layouts/CommonLayout";
 import { ArchPatterns } from "../../pages/Theory/ArchPatterns/ArchPatterns";
 import { MVC, MVCPage } from "../../pages/Theory/ArchPatterns/MVC/MVC";
+import { JSQuestions } from "../Frontend/JavaScript/questions/JSQuestions";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route index element={<FrontendPage />} />
           <Route path="javascript" element={<CommonLayout />}>
             <Route index element={<WebArchitecturePage />} />
+            <Route path="questions" element={<JSQuestions />} />
           </Route>
         </Route>
       </Routes>
