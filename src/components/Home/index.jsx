@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
-import { Hello } from "../../components/Home/Hello";
-import { NavbarHome } from "../../components/Home/NavbarHome";
-import { Steps } from "../../components/Home/Steps";
+import { Hello } from "./Hello";
+import { NavbarHome } from "./NavbarHome";
+import { Steps } from "./Steps";
 export const HomePage = () => {
   return (
     <>

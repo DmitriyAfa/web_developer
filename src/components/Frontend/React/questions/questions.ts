@@ -1,7 +1,9 @@
-const questions10 = [
+import { TSubjectOfQuestions } from "../../../../types/Frontend/questions";
+
+const commonQestions10 = [
   {
     question: "Что такое React",
-    topics: [
+    answers: [
       {
         answer: [
           `Это JavaScript-библиотека предназначенная для создания пользовательских интерфейсов (UI)`,
@@ -132,7 +134,7 @@ const questions10 = [
   },
 ];
 
-const questions20 = [
+const commonQuestions20 = [
   {
     question:
       "Что будет если передать в boolean-значение, null или undefined как children",
@@ -258,8 +260,10 @@ const questions20 = [
   },
 ];
 
-export const commonQuestions = {
-  title: "Общие вопросы",
-  questions: 1,
+const commonQuestions = {
+  title: "Общие вопросы по React",
+  questions: [...commonQestions10, ...commonQuestions20],
   id: 0,
 };
+
+export const questions: TSubjectOfQuestions = [commonQuestions];

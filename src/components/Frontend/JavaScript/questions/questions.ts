@@ -1,7 +1,9 @@
-const qestions10 = [
+import { TSubjectOfQuestions } from "../../../../types/Frontend/questions";
+
+const commonQestions10 = [
   {
     question: "Что такое JavaScript",
-    topics: [
+    answers: [
       {
         topic: "Предназначение ? ",
         answer: [`Изначально Создан для "оживления" веб-страницы`],
@@ -190,7 +192,7 @@ const qestions10 = [
   },
 ];
 
-const questions20 = [
+const commonQuestions20 = [
   {
     question: "Почему у примитивов есть методы",
     answers: [
@@ -249,7 +251,7 @@ const questions20 = [
         answer: [
           `Сравнение без приведения типов. Если сравним 1 и "1", то сравнится 1 (number) с "1" (string) и получим false`,
         ],
-        id: 0,
+        id: 1,
       },
     ],
     id: 13,
@@ -349,6 +351,8 @@ const questions20 = [
 
 export const commonQuestions = {
   title: "Общие вопросы",
-  questions: 1,
+  questions: [...commonQestions10, ...commonQuestions20],
   id: 0,
 };
+
+export const questions: TSubjectOfQuestions = [commonQuestions];

@@ -1,16 +1,19 @@
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { HeaderApp } from "./Header";
-import { HomePage } from "../../pages/Home/Home";
+import { HomePage } from "../Home";
 import { TheoryLayout } from "../layouts/Theory/TheoryLayout";
 import { TheoryPage } from "../../pages/Theory/Theory";
 import { SitemapPage } from "../../pages/Theory/WebArchitecture/Sitemap/Sitemap";
 import { WebArchitecturePage } from "../../pages/Theory/WebArchitecture/WebArchitecture";
 import { FrontendLayout } from "../layouts/Frontend/FrontendLayout";
-import { FrontendPage } from "../../pages/Frontend/Frontend";
+import { FrontendPage } from "../Frontend";
 import { CommonLayout } from "../layouts/CommonLayout";
 import { ArchPatterns } from "../../pages/Theory/ArchPatterns/ArchPatterns";
 import { MVC, MVCPage } from "../../pages/Theory/ArchPatterns/MVC/MVC";
+import { JSQuestions } from "../Frontend/JavaScript/questions/JSQuestions";
+import { TSQuestions } from "../Frontend/TypeScript/questions/TSQuestions";
+import { ReactQuestions } from "../Frontend/React/questions/ReactQuestions";
 
 function App() {
   return (
@@ -39,6 +42,15 @@ function App() {
           <Route index element={<FrontendPage />} />
           <Route path="javascript" element={<CommonLayout />}>
             <Route index element={<WebArchitecturePage />} />
+            <Route path="questions" element={<JSQuestions />} />
+          </Route>
+          <Route path="typescript" element={<CommonLayout />}>
+            <Route index element={<WebArchitecturePage />} />
+            <Route path="questions" element={<TSQuestions />} />
+          </Route>
+          <Route path="React" element={<CommonLayout />}>
+            <Route index element={<WebArchitecturePage />} />
+            <Route path="questions" element={<ReactQuestions />} />
           </Route>
         </Route>
       </Routes>
